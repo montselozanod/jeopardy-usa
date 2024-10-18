@@ -1,6 +1,7 @@
 // src/App.tsx
 
 import React, { useState } from 'react';
+import img from './usa.png'
 
 interface Question {
     question: string;
@@ -25,10 +26,11 @@ const categories: Category[] = [
         questions: [
             { question: "This Netflix series follows a group of kids battling strange forces from the Upside Down in the 1980s.", answer: "Stranger Things", value: 200, answered: false },
             { question: "He’s the fictional president in The West Wing, known for his sharp wit and love of national parks.", answer: "Jed Bartlet", value: 400, answered: false },
-            { question: "This animated comedy family from Springfield has been predicting the future for over 30 years.", answer: "The Simpsons", value: 600, answered: false },
-            { question: "In Parks and Recreation, this character famously declares, “Treat Yo’ Self!”", answer: "Tom Haverford", value: 800, answered: false },
-            { question: "This Netflix docuseries about big cats, mullets, and mayhem captivated America in 2020.", answer: "Tiger King", value: 1000, answered: false },
-            { question: "What is the powerhouse of the cell?", answer: "Mitochondria", value: 1200, answered: false },
+            { question: "This beloved sitcom taught us how to pivot a couch", answer: "Friends", value: 600, answered: false },
+            { question: "This animated comedy family from Springfield has been predicting the future for over 30 years.", answer: "The Simpsons", value: 800, answered: false },
+            { question: "In Parks and Recreation, this character famously declares, “Treat Yo’ Self!”", answer: "Tom Haverford", value: 1000, answered: false },
+            { question: "This Netflix docuseries about big cats, mullets, and mayhem captivated America in 2020.", answer: "Tiger King", value: 1200, answered: false },
+            { question: "This Disney Channel show starred a teenage psychic trying to prevent disasters.", answer: "That's so Raven", value: 1400, answered: false },
         ]
     },
     {
@@ -39,8 +41,9 @@ const categories: Category[] = [
             { question: "You can visit a UFO museum in this New Mexico town famous for an alleged alien crash.", answer: "Roswell", value: 600, answered: false },
             { question: "This state has more cows than people, earning it the nickname 'America’s Dairyland.'", answer: "Wisconsin", value: 800, answered: false },
             { question: "In this state, it's illegal to ride a horse faster than 10 MPH on public roads.", answer: "Utah", value: 1000, answered: false },
-            { question: "Who discovered America?", answer: "Christopher Columbus", value: 1200, answered: false },
-        ]
+            { question: "In 1945, scientists in this state witnessed the detonation of the world's first atomic bomb.", answer: "New Mexico", value: 1200, answered: false },
+            { question: "Home to America's only operational diamond mine", answer: "Arkansas", value: 1400, answered: false },
+          ]
     },
     {
       name: "Founding Fathers and Founding Fails",
@@ -49,30 +52,33 @@ const categories: Category[] = [
           { question: "This document begins with the words, “We the People.”", answer: "Constitution", value: 400, answered: false },
           { question: "Alexander Hamilton famously died in a duel with this vice president.", answer: "Aaron Burr", value: 600, answered: false },
           { question: "This Founding Father invented bifocals but also suggested making a “Daylight Saving” system.", answer: "Benjamin Franklin", value: 800, answered: false },
-          { question: "What ancient civilization built the pyramids?", answer: "Egyptians", value: 1000, answered: false },
+          { question: "Ben Franklin changed Jefferson's 'We hold these truths to be sacred and undeniable' to this", answer: "We hold these truths to be self-evident", value: 1000, answered: false },
           { question: "The first capital of the United States.", answer: "New York City", value: 1200, answered: false },
-      ]
+          { question: "Thomas Jefferson and John Adams died on the same day. Which notable day was it?", answer: "July 4", value: 1400, answered: false },
+        ]
   },
   {
     name: "Y’all, That’s So American!",
     questions: [
         { question: "This sport is known as “America’s pastime”", answer: "Baseball", value: 200, answered: false },
-        { question: "In which year did the Titanic sink?", answer: "1912", value: 400, answered: false },
-        { question: "What war was fought between the North and South regions in the U.S.?", answer: "Civil War", value: 600, answered: false },
-        { question: "Who was the first woman to fly solo across the Atlantic Ocean?", answer: "Amelia Earhart", value: 800, answered: false },
-        { question: "What ancient civilization built the pyramids?", answer: "Egyptians", value: 1000, answered: false },
-        { question: "Who discovered America?", answer: "Christopher Columbus", value: 1200, answered: false },
+        { question: "The busiest airport in the US", answer: "Atlanta International Airport", value: 400, answered: false },
+        { question: "What American car company had the original idea of an assembly line?", answer: "Ford", value: 600, answered: false },
+        { question: "The tallest U.S. president in history.", answer: "Abraham Lincoln", value: 800, answered: false },
+        { question: "When this federal standard went into effect in 1938, it was 25 cents per hour; today, it's $7.25", answer: "Minimum wage", value: 1000, answered: false },
+        { question: "Of 9 'wars' in which the U.S. has been actively involved, these 2 lasted the longest.", answer: "Vietnam and Revolution", value: 1200, answered: false },
+        { question: "This president vetoed more legislation than any other", answer: "FDR", value: 1400, answered: false },
     ]
 },
 {
-  name: "Lights, Camera, Star-Spangled Action!",
+  name: "The U.S. of A-List",
   questions: [
       { question: "He’s the actor known for playing Forrest Gump, Captain Phillips, and Mr. Rogers.", answer: "Tom Hanks", value: 200, answered: false },
       { question: "Which Prince made waves by slapping Chris Rock at the Oscars?", answer: "Will Smith", value: 400, answered: false },
-      { question: "What war was fought between the North and South regions in the U.S.?", answer: "Civil War", value: 600, answered: false },
-      { question: "Who was the first woman to fly solo across the Atlantic Ocean?", answer: "Amelia Earhart", value: 800, answered: false },
-      { question: "What ancient civilization built the pyramids?", answer: "Egyptians", value: 1000, answered: false },
-      { question: "Who discovered America?", answer: "Christopher Columbus", value: 1200, answered: false },
+      { question: "She is the first Hispanic woman to serve on the Supreme Court", answer: "Sonia Sotomayor", value: 600, answered: false },
+      { question: "This president vetoed more legislation than any other", answer: "FDR", value: 800, answered: false },
+      { question: "Jumped up and down on Oprah's couch", answer: "Tom Cruise", value: 1000, answered: false },
+      { question: "The real name of the 2016 Nobel Prize for Literature", answer: "Robert Zimmermann (Bob Dylan)", value: 1200, answered: false },
+      { question: "Florida man who became viral for ignoring evacuation requests and survived hurricane Milton by chilling in his boat in Tampa", answer: "Lt. Dan", value: 1400, answered: false },
   ]
 },
 ];
@@ -120,7 +126,7 @@ const App: React.FC = () => {
     return (
         <div style={{ padding: '20px' }}>
             <h1>United States of Trivia 🇺🇸 </h1>
-            <img src='usa.png' style={{width: '500px', height: '600px'}}/>
+            <img src={img} style={{width: '100%', height: '700px'}}/>
             <h2>Scores</h2>
             <ul>
                 {players.map((player, index) => (
