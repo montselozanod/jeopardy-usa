@@ -144,7 +144,7 @@ const App: React.FC = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {Array.from({ length: 6 }).map((_, rowIndex) => (
+                    {Array.from({ length: 7 }).map((_, rowIndex) => (
                         <tr key={rowIndex}>
                             {categories.map((category, cIndex) => {
                                 const question = category.questions[rowIndex] || null;
